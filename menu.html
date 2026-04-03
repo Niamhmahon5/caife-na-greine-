@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Caife na Gréine menu - explore our fresh coffee, teas and homemade pastries.">
+  <meta name="keywords" content="coffee menu, cafe menu, pastries, Irish cafe, Caife na Greine">
+  <title>Caife na Gréine | Menu</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">Caife na Gréine</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="page-hero">
+    <h1>Our Menu</h1>
+    <p>Something for everyone, made with love.</p>
+  </section>
+
+  <!-- ACCORDION MENU -->
+  <section class="accordion-section">
+
+    <div class="accordion">
+      <button class="accordion-btn">☕ Hot Drinks</button>
+      <div class="accordion-content">
+        <ul>
+          <li>Espresso - €2.50</li>
+          <li>Americano - €3.00</li>
+          <li>Cappuccino - €3.50</li>
+          <li>Latte - €3.50</li>
+          <li>Irish Breakfast Tea - €2.50</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn">🧊 Cold Drinks</button>
+      <div class="accordion-content">
+        <ul>
+          <li>Iced Latte - €4.00</li>
+          <li>Cold Brew - €4.00</li>
+          <li>Iced Matcha - €4.50</li>
+          <li>Fresh Lemonade - €3.00</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn">🥐 Food</button>
+      <div class="accordion-content">
+        <ul>
+          <li>Butter Croissant - €2.50</li>
+          <li>Banana Bread - €3.00</li>
+          <li>Scone with Jam & Cream - €3.50</li>
+          <li>Toasted Sandwich - €5.50</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- DRINK BUILDER -->
+  <section class="drink-builder">
+    <h2>☕ Build Your Own Drink</h2>
+    <p>Customise your perfect cup below.</p>
+
+    <div class="builder-form">
+
+      <label for="drink-choice">Choose Your Drink:</label>
+      <select id="drink-choice">
+        <option value="2.50">Espresso - €2.50</option>
+        <option value="3.00">Americano - €3.00</option>
+        <option value="3.50">Cappuccino - €3.50</option>
+        <option value="3.50">Latte - €3.50</option>
+        <option value="4.00">Iced Latte - €4.00</option>
+        <option value="4.00">Cold Brew - €4.00</option>
+      </select>
+
+      <label for="drink-size">Size:</label>
+      <select id="drink-size">
+        <option value="0">Small (+€0.00)</option>
+        <option value="0.50">Medium (+€0.50)</option>
+        <option value="1.00">Large (+€1.00)</option>
+      </select>
+
+      <label for="drink-milk">Milk Choice:</label>
+      <select id="drink-milk">
+        <option value="0">Regular Milk (free)</option>
+        <option value="0.50">Oat Milk (+€0.50)</option>
+        <option value="0.50">Almond Milk (+€0.50)</option>
+        <option value="0.50">Soy Milk (+€0.50)</option>
+      </select>
+
+      <label>Extras:</label>
+      <div class="extras">
+        <label><input type="checkbox" class="extra" value="0.50"> Extra Shot (+€0.50)</label>
+        <label><input type="checkbox" class="extra" value="0.30"> Vanilla Syrup (+€0.30)</label>
+        <label><input type="checkbox" class="extra" value="0.30"> Caramel Syrup (+€0.30)</label>
+        <label><input type="checkbox" class="extra" value="0.50"> Whipped Cream (+€0.50)</label>
+      </div>
+
+      <div class="total-display">
+        <span>Your Total:</span>
+        <span id="drink-total">€2.50</span>
+      </div>
+
+      <button class="btn" id="add-to-order">Add to Order</button>
+
+      <div id="order-confirmation" style="display:none; color:green; margin-top:10px;">
+        ✅ Added to your order! See you soon 😊
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Caife na Gréine. All rights reserved.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

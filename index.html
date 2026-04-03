@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Caife na Gréine - A warm Irish coffee shop serving fresh coffee and homemade pastries.">
+  <meta name="keywords" content="coffee shop, cafe, Irish cafe, fresh coffee, Caife na Greine">
+  <meta name="author" content="Caife na Gréine">
+  <title>Caife na Gréine | Home</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Caife na Gréine</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- IMAGE SLIDER -->
+  <section class="slider">
+    <div class="slides">
+      <div class="slide active" style="background-color: #4a2c2a;">
+        <div class="slide-text">
+          <h1>Welcome to Caife na Gréine</h1>
+          <p>A warm, sunny corner for great coffee.</p>
+          <a href="menu.html" class="btn">See Our Menu</a>
+        </div>
+      </div>
+      <div class="slide" style="background-color: #6b3f3a;">
+        <div class="slide-text">
+          <h1>Freshly Brewed Every Morning</h1>
+          <p>From espresso to cold brew — we've got your cup.</p>
+          <a href="menu.html" class="btn">Explore Drinks</a>
+        </div>
+      </div>
+      <div class="slide" style="background-color: #3b1f1e;">
+        <div class="slide-text">
+          <h1>Homemade Pastries Daily</h1>
+          <p>Baked fresh every morning with love.</p>
+          <a href="contact.html" class="btn">Book a Table</a>
+        </div>
+      </div>
+    </div>
+    <button class="slider-btn" id="prev">&#10094;</button>
+    <button class="slider-btn" id="next">&#10095;</button>
+    <div class="dots">
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+    </div>
+  </section>
+
+  <!-- WEATHER WIDGET -->
+  <section class="weather-widget">
+    <h2>Today's Weather</h2>
+    <div id="weather">Loading weather...</div>
+  </section>
+<!-- SOUNDTRACK -->
+<!-- SOUNDTRACK -->
+<section style="padding: 40px; text-align: center; background: #3d1a0f;">
+  <h2 style="color: #f5c842;">🎵 Our Soundtrack</h2>
+  <p style="color: #f5f0e8; margin-bottom: 15px;">A little Irish music while you browse.</p>
+  <iframe width="560" height="315" 
+    src="https://www.youtube.com/embed/U5Hmwh4US6U?si=n8KJAfEPfVR0bMel" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+  </iframe>
+</section>
+
+<footer>
+  <p>&copy; 2025 Caife na Gréine. All rights reserved.</p>
+</footer>
+  <script>
+    // SLIDER
+    var current = 0;
+    var slides = document.querySelectorAll('.slide');
+    var dots = document.querySelectorAll('.dot');
+
+    function goToSlide(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+      document.querySelector('.slides').style.transform = 'translateX(-' + (current * 100) + '%)';
+    }
+
+    document.getElementById('prev').addEventListener('click', function() { goToSlide(current - 1); });
+    document.getElementById('next').addEventListener('click', function() { goToSlide(current + 1); });
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        goToSlide(parseInt(this.getAttribute('data-index')));
+      });
+    });
+    setInterval(function() { goToSlide(current + 1); }, 4000);
+
+    // WEATHER
+    fetch('https://api.open-meteo.com/v1/forecast?latitude=53.3498&longitude=-6.2603&current_weather=true')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var temp = data.current_weather.temperature;
+        var wind = data.current_weather.windspeed;
+        var code = data.current_weather.weathercode;
+        var desc = 'Clear skies';
+        if (code >= 1 && code <= 3) desc = 'Partly cloudy';
+        if (code >= 45 && code <= 48) desc = 'Foggy';
+        if (code >= 51 && code <= 67) desc = 'Rainy';
+        if (code >= 71 && code <= 77) desc = 'Snowy';
+        if (code >= 80 && code <= 82) desc = 'Showers';
+        if (code >= 95) desc = 'Thunderstorms';
+        document.getElementById('weather').innerHTML = '🌤️ Dublin: ' + temp + '°C — ' + desc + ' | 💨 Wind: ' + wind + ' km/h';
+      })
+      .catch(function() {
+        document.getElementById('weather').innerText = 'Weather unavailable right now.';
+      });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Caife na Gréine - get in touch, make a booking or send us a message.">
+  <meta name="keywords" content="contact, booking, coffee shop, Caife na Greine">
+  <title>Caife na Gréine | Contact</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">Caife na Gréine</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="page-hero">
+    <h1>Contact Us</h1>
+    <p>We'd love to hear from you.</p>
+  </section>
+
+  <section class="contact-section">
+    <form id="contact-form">
+
+      <label for="name">Full Name *</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required>
+
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="email" placeholder="your@email.com" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="+353 ...">
+
+      <label for="subject">Subject *</label>
+      <select id="subject" name="subject" required>
+        <option value="">-- Select a subject --</option>
+        <option value="general">General Enquiry</option>
+        <option value="booking">Table Booking</option>
+        <option value="catering">Catering Request</option>
+        <option value="feedback">Feedback</option>
+      </select>
+
+      <label for="visit-date">Preferred Visit Date</label>
+      <input type="date" id="visit-date" name="visit-date">
+
+      <label for="guests">Number of Guests</label>
+      <input type="number" id="guests" name="guests" min="1" max="20" placeholder="e.g. 4">
+
+      <label for="message">Message *</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit" class="btn">Send Message</button>
+
+      <p id="form-confirmation" style="display:none; color:green;">
+        Thank you! Your message has been sent.
+      </p>
+
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Caife na Gréine. All rights reserved.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
